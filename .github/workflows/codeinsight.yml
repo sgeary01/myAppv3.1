@@ -29,7 +29,9 @@ jobs:
           echo "The operating system on the runner is $env:RUNNER_OS."
           echo "The workspace is $env:GITHUB_WORKSPACE."
           echo "My Variable is $env:AUTH_TOKEN."
-          echo  java -jar $env:JARFILE -server $env:CODEINSIGHT_SERVER -token "Bearer $env:AUTH_TOKEN" -proj "$env:CODEINSIGHT_PROJECT" -root "$env:GITHUB_WORKSPACE" -scandirs "$env:GITHUB_WORKSPACE"  -alias "$env:ALIAS" -host "$env:HOSTNAME"  
+          echo  "java -jar $env:JARFILE -server $env:CODEINSIGHT_SERVER -token "Bearer $env:AUTH_TOKEN" -proj "$env:CODEINSIGHT_PROJECT" -root "$env:GITHUB_WORKSPACE" -scandirs "$env:GITHUB_WORKSPACE"  -alias "$env:ALIAS" -host "$env:HOSTNAME""
+
+          java -jar $env:JARFILE -server $env:CODEINSIGHT_SERVER -token "Bearer $env:AUTH_TOKEN" -proj "$env:CODEINSIGHT_PROJECT" -root "$env:GITHUB_WORKSPACE" -scandirs "$env:GITHUB_WORKSPACE"  -alias "$env:ALIAS" -host "$env:HOSTNAME"
 
       
       - name: Non Windows Runner
