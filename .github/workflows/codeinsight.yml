@@ -4,7 +4,7 @@ name: CI
 
 env:
  CODEINSIGHT_SERVER: http://localhost:8888/codeinsight
- AUTH_TOKEN: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzZ2VhcnkiLCJ1c2VySWQiOjksImlhdCI6MTY2OTEzNTc1N30.LSc-K5H7hr_j_olZZ9aK5rxhUx9evqri6CUo8WikSC-mq0uWIBG0ZJ7cKsrIdtJrnGAFIQcpURsdPO7m5VueHw
+ AUTH_TOKEN: "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzZ2VhcnkiLCJ1c2VySWQiOjksImlhdCI6MTY2OTEzNTc1N30.LSc-K5H7hr_j_olZZ9aK5rxhUx9evqri6CUo8WikSC-mq0uWIBG0ZJ7cKsrIdtJrnGAFIQcpURsdPO7m5VueHw"
  CODEINSIGHT_PROJECT: My Application v3.1
  HOSTNAME: WFH-LT-103659
  ALIAS: github-action-runner
