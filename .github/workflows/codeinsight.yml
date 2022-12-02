@@ -4,12 +4,18 @@ on:
   workflow_dispatch
 
 jobs:
-  if-Windows-else:
+  code_insight_scan:
     runs-on: self-hosted
+    env:
+      TESTVARIABLE: My Value
     steps:
-      - name: condition 1
+      - name: Windows Runner
         if: runner.os == 'Windows'
-        run: echo "The operating system on the runner is $env:RUNNER_OS."
-      - name: condition 2
+        run: |
+          echo "The operating system on the runner is $env:RUNNER_OS."
+          echo "The workspace is $env:GITHUB_WORKSPACE."
+          echo "My Variable is $env:TESTVARIABLE."
+      
+      - name: Non Windows Runner
         if: runner.os != 'Windows'
         run: echo "The operating system on the runner is not Windows, it's $RUNNER_OS."
