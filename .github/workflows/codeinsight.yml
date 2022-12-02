@@ -1,51 +1,15 @@
-# This is a basic workflow to help you get started with Actions
+name: Code Insight Scan
 
-name: CI
-
-
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_dispatch
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  if-Windows-else:
     runs-on: self-hosted
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-        
-      - name: Display the path
-        run: echo ${env:PATH}
-  scan:
-   runs-on: self-hosted
-   env:
-    $CODEINSIGHT_SERVER:http://localhost:8888/codeinsight
-    $AUTH_TOKEN:"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzZ2VhcnkiLCJ1c2VySWQiOjksImlhdCI6MTY2OTEzNTc1N30.LSc-K5H7hr_j_olZZ9aK5rxhUx9evqri6CUo8WikSC-mq0uWIBG0ZJ7cKsrIdtJrnGAFIQcpURsdPO7m5VueHw"
-    $CODEINSIGHT_PROJECT:"My Application v3.1"
-    $HOSTNAME:WFH-LT-103659
-    $ALIAS:github-action-runner
-    $JARFILE:D:\GITREPOS\SCA\CodeInsight\GitLab\GitLab-Runner\generic-plugin-binary\codeinsight-generic-3.1.7-SNAPSHOT.jar
-  
-   
-   steps:
-
-      # Scan it
-      - name: Scan with Code Insight
-        shell: powershell
-        run:  echo java -jar $JARFILE -server $CODEINSIGHT_SERVER -token "Bearer $AUTH_TOKEN" -proj "$CODEINSIGHT_PROJECT" -root "$GITHUB_WORKSPACE" -scandirs "$GITHUB_WORKSPACE"  -alias "$ALIAS" -host "$HOSTNAME"  
-           
+      - name: condition 1
+        if: runner.os == 'Windows'
+        run: echo "The operating system on the runner is $env:RUNNER_OS."
+      - name: condition 2
+        if: runner.os != 'Windows'
+        run: echo "The operating system on the runner is not Windows, it's $RUNNER_OS."
