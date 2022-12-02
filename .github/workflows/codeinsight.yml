@@ -43,5 +43,5 @@ jobs:
       # Scan it
       - name: Scan with Code Insight
         shell: powershell
-        run:  java -jar $JARFILE -server $CODEINSIGHT_SERVER -token "Bearer $AUTH_TOKEN" -proj "$CODEINSIGHT_PROJECT" -root "$GITHUB_WORKSPACE" -scandirs "$GITHUB_WORKSPACE"  -alias "$ALIAS" -host "$HOSTNAME"  
+        run:  echo java -jar $JARFILE -server $CODEINSIGHT_SERVER -token "Bearer $AUTH_TOKEN" -proj "$CODEINSIGHT_PROJECT" -root "$GITHUB_WORKSPACE" -scandirs "$GITHUB_WORKSPACE"  -alias "$ALIAS" -host "$HOSTNAME"  
            
