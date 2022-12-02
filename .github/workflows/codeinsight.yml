@@ -7,14 +7,19 @@ jobs:
   code_insight_scan:
     runs-on: self-hosted
     env:
-      TESTVARIABLE: My Value
+      CODEINSIGHT_SERVER: http://localhost:8888
+      AUTH_TOKEN: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzZ2VhcnkiLCJ1c2VySWQiOjksImlhdCI6MTY2OTEzNTc1N30.LSc-K5H7hr_j_olZZ9aK5rxhUx9evqri6CUo8WikSC-mq0uWIBG0ZJ7cKsrIdtJrnGAFIQcpURsdPO7m5VueHw
+      CODEINSIGHT_PROJECT: My Application v3.1
+      HOSTNAME: WFH-LT-103659
+      ALIAS: github-actions-runner
+      JARFILE: D:\GITREPOS\SCA\CodeInsight\GitHub\generic-plugin-binary\codeinsight-generic-3.1.7-SNAPSHOT.jar
     steps:
       - name: Windows Runner
         if: runner.os == 'Windows'
         run: |
           echo "The operating system on the runner is $env:RUNNER_OS."
           echo "The workspace is $env:GITHUB_WORKSPACE."
-          echo "My Variable is $env:TESTVARIABLE."
+          echo "My Variable is $env:AUTH_TOKEN."
       
       - name: Non Windows Runner
         if: runner.os != 'Windows'
