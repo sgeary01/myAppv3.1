@@ -38,6 +38,5 @@ jobs:
         run: echo Hello, world!
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          java -jar $JARFILE -server $CODEINSIGHT_SERVER -token "Bearer $AUTH_TOKEN" -proj "$CODEINSIGHT_PROJECT" -root "$CI_PROJECT_DIR" -scandirs "$CI_PROJECT_DIR"  -alias "$ALIAS" -host "$HOSTNAME"  
+      - name: Scan with Code Insight
+        run:  java -jar $JARFILE -server $CODEINSIGHT_SERVER -token "Bearer $AUTH_TOKEN" -proj "$CODEINSIGHT_PROJECT" -root "$GITHUB_WORKSPACE" -scandirs "$GITHUB_WORKSPACE"  -alias "$ALIAS" -host "$HOSTNAME"  
